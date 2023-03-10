@@ -1,0 +1,207 @@
+\ProvidesPackage{beamerthemePSU}[2021/11/11]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This template is based on the following template by LIM Lian Tze
+% https://www.overleaf.com/latex/templates/gelugor-a-beamer-theme-for-usm/dvrvzrkdsrww 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The original author's information:
+% Gelugor (Universiti Sains Malaysia) presentation theme for beamer
+%
+% LIM Lian Tze <liantze@gmail.com>, 2011
+% http://liantze.penguinattack.org/latextypesetting
+%
+% Changelog:
+%
+% Version 1.0:
+%   First public version.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modified by Mahdi Belbasi (for PSU Engineering)
+% Email: belbasi@psu.edu
+% Homepage: https://sites.google.com/view/belbasi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{PSUnavy}{RGB}{30,64,124}
+\definecolor{PSUDarkBlue}{RGB}{4,30,66}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Outer theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useoutertheme[width=.15\paperwidth]{sidebar}
+\setlength{\beamer@headheight}{.185\paperheight}
+\pgfdeclareimage[width=.1\paperwidth]{small-logo}{psu-state-steal}
+\pgfdeclareimage[width=.13\paperwidth]{type-logo}{psu-logo-180p}
+\pgfdeclareimage[width=.53\paperwidth]{white-logo}{PSU_ENG_RGB}
+\pgfdeclareimage[width=.33\paperwidth]{large-corner}{large-corner}
+\pgfdeclareimage[height=\beamer@headheight]{small-corner}{small-corner}
+\setbeamertemplate{sidebar left}{%
+\vskip7pt
+\insertverticalnavigation{\beamer@sidebarwidth}%
+}
+
+\setbeamertemplate{footline}[text line]{%
+\insertshortauthor\strut\hfill\insertshorttitle\hfill\insertshortdate\hspace{1em}\insertframenumber/\inserttotalframenumber}
+
+\addtobeamertemplate{notitle}{}{%
+\begin{pgfpicture}
+\pgftext[at=\pgfpoint{\paperwidth}{-\beamer@headheight},right,base]{\pgfuseimage{small-corner}}
+\pgfsetcolor{white}
+\pgfusepath{stroke}
+\pgfsetcolor{PSUDarkBlue}
+\pgfusepath{stroke}
+\pgftext[at=\pgfpoint{.073\paperwidth}{-.97\paperheight},center,base]{\pgfuseimage{small-logo}}
+\end{tikzpicture}}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{\beamer@headheight+18pt}
+\pgftext[at=\pgfpoint{\paperwidth}{-\beamer@headheight},right,base]{\pgfuseimage{small-corner}}
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{0pt}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-\beamer@headheight}}
+\pgfsetlinewidth{3.5pt}
+\pgfsetinnerlinewidth{1pt}
+\pgfsetinnerstrokecolor{PSUDarkBlue}
+\pgfsetcolor{white}
+\pgfusepath{stroke}
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.23\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.97\paperheight}}
+\pgfsetlinewidth{1pt}
+\pgfsetinnerlinewidth{0pt}
+\pgfsetcolor{PSUDarkBlue}
+\pgfusepath{stroke}
+\pgftext[at=\pgfpoint{.073\paperwidth}{-.97\paperheight},center,base]{\pgfuseimage{small-logo}}
+\end{pgfpicture}%
+\vskip-25pt%
+}
+
+\addtobeamertemplate{title page}{%
+\usebeamertemplate{title background}%
+\vskip .2\paperheight%
+}
+{}
+
+\newcommand\DoPSUBackground{%
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpathrectanglecorners{\pgfpoint{0pt}{0pt}}{\pgfpoint{\paperwidth}{-\paperheight}}
+\pgfsetfillcolor{PSUnavy}
+\pgfusepath{fill}
+\pgftext[at=\pgfpoint{\paperwidth}{-\paperheight},right,base]{\pgfuseimage{large-corner}}
+}
+
+\setbeamertemplate{title background}{%
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{5.5pt}
+\DoPSUBackground
+
+% White bar across top
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpathrectanglecorners{\pgfpoint{0pt}{0pt}}{\pgfpoint{\paperwidth}{-.25\paperheight}}
+\pgfsetfillcolor{white}
+\pgfusepath{fill}
+
+% Logo
+\pgftext[at=\pgfpoint{.007\paperwidth}{-.183\paperheight},left,base]{\pgfuseimage{type-logo}}
+
+% Purple short bar on left
+\pgfpathrectanglecorners{\pgfpoint{0pt}{-.19\paperheight}}{\pgfpoint{.15\paperwidth}{-.24\paperheight}}
+\pgfsetfillcolor{PSUnavy}
+\pgfusepath{fill}
+
+% Followed by orange bar on right
+\pgfpathrectanglecorners{\pgfpoint{.15\paperwidth}{-.19\paperheight}}{\pgfpoint{\paperwidth}{-.24\paperheight}}
+\pgfsetfillcolor{PSUDarkBlue}
+\pgfusepath{fill}
+
+% A stroke down the middle
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.19\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.24\paperheight}}
+\pgfsetlinewidth{3.5pt}
+\pgfsetinnerlinewidth{1pt}
+\pgfsetinnerstrokecolor{PSUDarkBlue}
+\pgfsetrectcap
+\pgfsetcolor{white}
+\pgfusepath{stroke}
+
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.28\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.45\paperheight}}
+\pgfsetlinewidth{1pt}
+\pgfsetinnerlinewidth{0pt}
+\pgfsetcolor{PSUDarkBlue}
+\pgfusepath{stroke}
+
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.55\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.6\paperheight}}
+\pgfsetlinewidth{1pt}
+\pgfsetcolor{PSUnavy}
+\pgfusepath{stroke}
+
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.9\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.93\paperheight}}
+\pgfsetlinewidth{1pt}
+\pgfsetcolor{white}
+\pgfusepath{stroke}
+
+
+\end{pgfpicture}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inner Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useinnertheme{rectangles}
+\setbeamertemplate{navigation symbols}{}
+
+\setlength{\leftmargini}{.5em}
+\setlength{\leftmarginii}{1.0em}
+\setlength{\leftmarginiii}{1.5em}
+\setlength{\leftmarginiv}{2.0em}
+\setlength{\leftmarginv}{2.5em}
+\setlength{\leftmarginvi}{3.0em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colours
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme[named=PSUDarkBlue]{structure}
+\usecolortheme{rose}
+\setbeamercolor{title page}{fg=white}
+\setbeamercolor{logo}{bg=PSUDarkBlue}
+\setbeamercolor{frametitle}{fg=white,bg=PSUnavy}
+\setbeamercolor{section in sidebar}{fg=PSUDarkBlue}
+\setbeamerfont{section in sidebar}{series=\bfseries}
+\setbeamercolor{block title}{bg=PSUnavy!28!white,fg=PSUnavy}
+\setbeamercolor{block body}{bg=PSUDarkBlue!15!white}
+
+\newcommand\ThankYouFrame{
+\begin{frame}[plain,t]
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{5.5pt}
+%\DoPSUBackground
+\pgftext[at=\pgfpoint{.6\paperwidth}{-.6\paperheight},center,center]{\pgfuseimage{white-logo}}
+\pgftext[at=\pgfpoint{.5\paperwidth}{-.3\paperheight},center,center]{\huge\structure{Thanks!}}
+
+\end{pgfpicture}
+\end{frame}
+}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\endbeamer@frameslide}{\ifx\beamer@frametitle\@empty}{\iffalse}{}{\errmessage{failed to patch}}
+\makeatother
